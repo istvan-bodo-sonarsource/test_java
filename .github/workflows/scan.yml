@@ -9,13 +9,14 @@ on:
 
 permissions:
   pull-requests: read # allows SonarCloud to decorate PRs with analysis results
-  
+
 jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarCloud Scan
